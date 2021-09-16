@@ -47,6 +47,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
     //добавленные библиотеки
+    //Данные библиотеки выбрал из-за их популярности, также исходя из рекомендаций который дал Google
     //навигация
     implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
