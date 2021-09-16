@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.umbrella.currencyapp.model.AppState
 import com.umbrella.currencyapp.model.Currency
-import com.umbrella.currencyapp.model.network.ApiFactory
+import com.umbrella.currencyapp.model.api.ApiFactory
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -33,10 +33,10 @@ class MainViewModel : ViewModel() {
     }
 
     private fun castObjectFieldsToGeneralClassAndPutInTheList(
-        valuteInfo: String,
+        currencyInfo: String,
         listSize: Int
     ): List<Currency> {
-        val split = valuteInfo.split(",", "(", ")")
+        val split = currencyInfo.split(",", "(", ")")
         val list =
             split.filter { s -> s.contains("=") }.map { s -> s.split("=")[1] }
         val currencyList = ArrayList<Currency>()

@@ -10,12 +10,19 @@ import com.umbrella.currencyapp.model.Currency
 class CurrencyAdapter : RecyclerView.Adapter<CurrencyAdapter.MyViewHolder>() {
 
     private var currencyList: List<Currency> = ArrayList()
+    private var onItemClick: (Currency) -> Unit = {}
 
     @SuppressLint("NotifyDataSetChanged")
     fun setData(currencyList: List<Currency>) {
         this.currencyList = currencyList
         notifyDataSetChanged()
     }
+
+    fun setOnItemClickListener(onItemClick: (Currency) -> Unit) {
+        this.onItemClick = onItemClick
+    }
+
+    fun getData() = currencyList
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val binding = ItemCurrencyBinding.inflate(
@@ -44,6 +51,9 @@ class CurrencyAdapter : RecyclerView.Adapter<CurrencyAdapter.MyViewHolder>() {
                 nominalTV.text = currency.nominal.toString()
                 currencyNameTV.text = currency.name
                 valueTV.text = currency.value.toString()
+                root.setOnClickListener {
+                    onItemClick(currency)
+                }
             }
         }
     }

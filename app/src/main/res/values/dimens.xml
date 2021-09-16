@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="app_main_margin">10dp</dimen>
+
     <!--    item_currency-->
     <dimen name="item_currency_text_view_margin">4dp</dimen>
+
+    <!--    fragment_currency_detail-->
+    <dimen name="fragment_currency_detail_view_margin">8dp</dimen>
+
 </resources>

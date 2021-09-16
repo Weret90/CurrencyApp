@@ -1,4 +1,4 @@
-package com.umbrella.currencyapp.model.network
+package com.umbrella.currencyapp.model.api
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

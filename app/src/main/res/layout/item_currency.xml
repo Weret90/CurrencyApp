@@ -12,7 +12,7 @@
 
         <TextView
             android:id="@+id/numCodeTV"
-            style="@style/item_currency_text_style"
+            style="@style/item_currency_text_view_style"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/charCodeTV"
             app:layout_constraintHorizontal_weight="1"
@@ -22,7 +22,7 @@
 
         <TextView
             android:id="@+id/charCodeTV"
-            style="@style/item_currency_text_style"
+            style="@style/item_currency_text_view_style"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/nominalTV"
             app:layout_constraintHorizontal_weight="1"
@@ -32,7 +32,7 @@
 
         <TextView
             android:id="@+id/nominalTV"
-            style="@style/item_currency_text_style"
+            style="@style/item_currency_text_view_style"
             android:gravity="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/currencyNameTV"
@@ -43,7 +43,7 @@
 
         <TextView
             android:id="@+id/currencyNameTV"
-            style="@style/item_currency_text_style"
+            style="@style/item_currency_text_view_style"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/valueTV"
             app:layout_constraintHorizontal_weight="5"
@@ -53,7 +53,7 @@
 
         <TextView
             android:id="@+id/valueTV"
-            style="@style/item_currency_text_style"
+            style="@style/item_currency_text_view_style"
             android:layout_marginEnd="@dimen/item_currency_text_view_margin"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">Currency App</string>
+    <string name="snackbar_action_text">Reload</string>
+
+    <!--    fragment_currency_detail-->
+    <string name="fragment_currency_detail_convert_button">Конвертировать</string>
+    <string name="fragment_currency_detail_info_tv">Укажите нужную сумму и нажмите кнопку</string>
+    <string name="fragment_currency_detail_currency_edit_text_hint">Введите сумму в рублях</string>
+    <string name="fragment_currency_detail_info_tv_text">%s рублей = %.3f %s</string>
+    <string name="fragment_currency_detail_toast">Сначала введите данные</string>
+
+    <!--    menu-->
+    <string name="menu_refresh_text">Обновить</string>
 </resources>
