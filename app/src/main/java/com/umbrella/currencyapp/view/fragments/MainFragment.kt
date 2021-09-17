@@ -54,9 +54,10 @@ class MainFragment : Fragment() {
         viewModel.getCurrencyInfoLiveData().observe(viewLifecycleOwner) { result ->
             renderData(result)
         }
-        if (currencyAdapter.getData().isEmpty()) {
-            viewModel.makeApiCall()
+        viewModel.getTimeLiveData().observe(viewLifecycleOwner) {
+            binding.timeTV.text = it
         }
+        viewModel.repeatFunRefreshInfo()
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
@@ -70,10 +71,12 @@ class MainFragment : Fragment() {
                 binding.loadingLayout.visibility = View.VISIBLE
             }
             is AppState.Success -> {
+                binding.timeTV.visibility = View.VISIBLE
                 binding.loadingLayout.visibility = View.GONE
                 currencyAdapter.setData(result.currencyList)
             }
             is AppState.Error -> {
+                binding.timeTV.visibility = View.GONE
                 binding.loadingLayout.visibility = View.GONE
                 Snackbar.make(
                     binding.root,
