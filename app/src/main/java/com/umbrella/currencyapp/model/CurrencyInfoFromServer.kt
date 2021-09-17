@@ -1,6 +1,8 @@
 package com.umbrella.currencyapp.model
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
 data class CurrencyInfoFromServer(
     @SerializedName("Date")
@@ -12,81 +14,82 @@ data class CurrencyInfoFromServer(
     @SerializedName("Timestamp")
     val timestamp: String,
     @SerializedName("Valute")
-    val valute: Valute
+    val allCurrencyInfo: AllCurrencyInfo
 )
 
-data class Valute(
+data class AllCurrencyInfo(
     @SerializedName("AMD")
-    val aMD: AMD,
+    val aMD: Currency,
     @SerializedName("AUD")
-    val aUD: AUD,
+    val aUD: Currency,
     @SerializedName("AZN")
-    val aZN: AZN,
+    val aZN: Currency,
     @SerializedName("BGN")
-    val bGN: BGN,
+    val bGN: Currency,
     @SerializedName("BRL")
-    val bRL: BRL,
+    val bRL: Currency,
     @SerializedName("BYN")
-    val bYN: BYN,
+    val bYN: Currency,
     @SerializedName("CAD")
-    val cAD: CAD,
+    val cAD: Currency,
     @SerializedName("CHF")
-    val cHF: CHF,
+    val cHF: Currency,
     @SerializedName("CNY")
-    val cNY: CNY,
+    val cNY: Currency,
     @SerializedName("CZK")
-    val cZK: CZK,
+    val cZK: Currency,
     @SerializedName("DKK")
-    val dKK: DKK,
+    val dKK: Currency,
     @SerializedName("EUR")
-    val eUR: EUR,
+    val eUR: Currency,
     @SerializedName("GBP")
-    val gBP: GBP,
+    val gBP: Currency,
     @SerializedName("HKD")
-    val hKD: HKD,
+    val hKD: Currency,
     @SerializedName("HUF")
-    val hUF: HUF,
+    val hUF: Currency,
     @SerializedName("INR")
-    val iNR: INR,
+    val iNR: Currency,
     @SerializedName("JPY")
-    val jPY: JPY,
+    val jPY: Currency,
     @SerializedName("KGS")
-    val kGS: KGS,
+    val kGS: Currency,
     @SerializedName("KRW")
-    val kRW: KRW,
+    val kRW: Currency,
     @SerializedName("KZT")
-    val kZT: KZT,
+    val kZT: Currency,
     @SerializedName("MDL")
-    val mDL: MDL,
+    val mDL: Currency,
     @SerializedName("NOK")
-    val nOK: NOK,
+    val nOK: Currency,
     @SerializedName("PLN")
-    val pLN: PLN,
+    val pLN: Currency,
     @SerializedName("RON")
-    val rON: RON,
+    val rON: Currency,
     @SerializedName("SEK")
-    val sEK: SEK,
+    val sEK: Currency,
     @SerializedName("SGD")
-    val sGD: SGD,
+    val sGD: Currency,
     @SerializedName("TJS")
-    val tJS: TJS,
+    val tJS: Currency,
     @SerializedName("TMT")
-    val tMT: TMT,
+    val tMT: Currency,
     @SerializedName("TRY")
-    val tRY: TRY,
+    val tRY: Currency,
     @SerializedName("UAH")
-    val uAH: UAH,
+    val uAH: Currency,
     @SerializedName("USD")
-    val uSD: USD,
+    val uSD: Currency,
     @SerializedName("UZS")
-    val uZS: UZS,
+    val uZS: Currency,
     @SerializedName("XDR")
-    val xDR: XDR,
+    val xDR: Currency,
     @SerializedName("ZAR")
-    val zAR: ZAR
+    val zAR: Currency
 )
 
-data class AMD(
+@Parcelize
+data class Currency(
     @SerializedName("CharCode")
     val charCode: String,
     @SerializedName("ID")
@@ -101,566 +104,10 @@ data class AMD(
     val previous: Double,
     @SerializedName("Value")
     val value: Double
-)
+) : Parcelable {
+    override fun toString(): String {
+        return "+$charCode+$iD+$name+$nominal+$numCode+$previous+$value+"
+    }
+}
 
-data class AUD(
-    @SerializedName("CharCode")
-    val charCode: String,
-    @SerializedName("ID")
-    val iD: String,
-    @SerializedName("Name")
-    val name: String,
-    @SerializedName("Nominal")
-    val nominal: Int,
-    @SerializedName("NumCode")
-    val numCode: String,
-    @SerializedName("Previous")
-    val previous: Double,
-    @SerializedName("Value")
-    val value: Double
-)
-
-data class AZN(
-    @SerializedName("CharCode")
-    val charCode: String,
-    @SerializedName("ID")
-    val iD: String,
-    @SerializedName("Name")
-    val name: String,
-    @SerializedName("Nominal")
-    val nominal: Int,
-    @SerializedName("NumCode")
-    val numCode: String,
-    @SerializedName("Previous")
-    val previous: Double,
-    @SerializedName("Value")
-    val value: Double
-)
-
-data class BGN(
-    @SerializedName("CharCode")
-    val charCode: String,
-    @SerializedName("ID")
-    val iD: String,
-    @SerializedName("Name")
-    val name: String,
-    @SerializedName("Nominal")
-    val nominal: Int,
-    @SerializedName("NumCode")
-    val numCode: String,
-    @SerializedName("Previous")
-    val previous: Double,
-    @SerializedName("Value")
-    val value: Double
-)
-
-data class BRL(
-    @SerializedName("CharCode")
-    val charCode: String,
-    @SerializedName("ID")
-    val iD: String,
-    @SerializedName("Name")
-    val name: String,
-    @SerializedName("Nominal")
-    val nominal: Int,
-    @SerializedName("NumCode")
-    val numCode: String,
-    @SerializedName("Previous")
-    val previous: Double,
-    @SerializedName("Value")
-    val value: Double
-)
-
-data class BYN(
-    @SerializedName("CharCode")
-    val charCode: String,
-    @SerializedName("ID")
-    val iD: String,
-    @SerializedName("Name")
-    val name: String,
-    @SerializedName("Nominal")
-    val nominal: Int,
-    @SerializedName("NumCode")
-    val numCode: String,
-    @SerializedName("Previous")
-    val previous: Double,
-    @SerializedName("Value")
-    val value: Double
-)
-
-data class CAD(
-    @SerializedName("CharCode")
-    val charCode: String,
-    @SerializedName("ID")
-    val iD: String,
-    @SerializedName("Name")
-    val name: String,
-    @SerializedName("Nominal")
-    val nominal: Int,
-    @SerializedName("NumCode")
-    val numCode: String,
-    @SerializedName("Previous")
-    val previous: Double,
-    @SerializedName("Value")
-    val value: Double
-)
-
-data class CHF(
-    @SerializedName("CharCode")
-    val charCode: String,
-    @SerializedName("ID")
-    val iD: String,
-    @SerializedName("Name")
-    val name: String,
-    @SerializedName("Nominal")
-    val nominal: Int,
-    @SerializedName("NumCode")
-    val numCode: String,
-    @SerializedName("Previous")
-    val previous: Double,
-    @SerializedName("Value")
-    val value: Double
-)
-
-data class CNY(
-    @SerializedName("CharCode")
-    val charCode: String,
-    @SerializedName("ID")
-    val iD: String,
-    @SerializedName("Name")
-    val name: String,
-    @SerializedName("Nominal")
-    val nominal: Int,
-    @SerializedName("NumCode")
-    val numCode: String,
-    @SerializedName("Previous")
-    val previous: Double,
-    @SerializedName("Value")
-    val value: Double
-)
-
-data class CZK(
-    @SerializedName("CharCode")
-    val charCode: String,
-    @SerializedName("ID")
-    val iD: String,
-    @SerializedName("Name")
-    val name: String,
-    @SerializedName("Nominal")
-    val nominal: Int,
-    @SerializedName("NumCode")
-    val numCode: String,
-    @SerializedName("Previous")
-    val previous: Double,
-    @SerializedName("Value")
-    val value: Double
-)
-
-data class DKK(
-    @SerializedName("CharCode")
-    val charCode: String,
-    @SerializedName("ID")
-    val iD: String,
-    @SerializedName("Name")
-    val name: String,
-    @SerializedName("Nominal")
-    val nominal: Int,
-    @SerializedName("NumCode")
-    val numCode: String,
-    @SerializedName("Previous")
-    val previous: Double,
-    @SerializedName("Value")
-    val value: Double
-)
-
-data class EUR(
-    @SerializedName("CharCode")
-    val charCode: String,
-    @SerializedName("ID")
-    val iD: String,
-    @SerializedName("Name")
-    val name: String,
-    @SerializedName("Nominal")
-    val nominal: Int,
-    @SerializedName("NumCode")
-    val numCode: String,
-    @SerializedName("Previous")
-    val previous: Double,
-    @SerializedName("Value")
-    val value: Double
-)
-
-data class GBP(
-    @SerializedName("CharCode")
-    val charCode: String,
-    @SerializedName("ID")
-    val iD: String,
-    @SerializedName("Name")
-    val name: String,
-    @SerializedName("Nominal")
-    val nominal: Int,
-    @SerializedName("NumCode")
-    val numCode: String,
-    @SerializedName("Previous")
-    val previous: Double,
-    @SerializedName("Value")
-    val value: Double
-)
-
-data class HKD(
-    @SerializedName("CharCode")
-    val charCode: String,
-    @SerializedName("ID")
-    val iD: String,
-    @SerializedName("Name")
-    val name: String,
-    @SerializedName("Nominal")
-    val nominal: Int,
-    @SerializedName("NumCode")
-    val numCode: String,
-    @SerializedName("Previous")
-    val previous: Double,
-    @SerializedName("Value")
-    val value: Double
-)
-
-data class HUF(
-    @SerializedName("CharCode")
-    val charCode: String,
-    @SerializedName("ID")
-    val iD: String,
-    @SerializedName("Name")
-    val name: String,
-    @SerializedName("Nominal")
-    val nominal: Int,
-    @SerializedName("NumCode")
-    val numCode: String,
-    @SerializedName("Previous")
-    val previous: Double,
-    @SerializedName("Value")
-    val value: Double
-)
-
-data class INR(
-    @SerializedName("CharCode")
-    val charCode: String,
-    @SerializedName("ID")
-    val iD: String,
-    @SerializedName("Name")
-    val name: String,
-    @SerializedName("Nominal")
-    val nominal: Int,
-    @SerializedName("NumCode")
-    val numCode: String,
-    @SerializedName("Previous")
-    val previous: Double,
-    @SerializedName("Value")
-    val value: Double
-)
-
-data class JPY(
-    @SerializedName("CharCode")
-    val charCode: String,
-    @SerializedName("ID")
-    val iD: String,
-    @SerializedName("Name")
-    val name: String,
-    @SerializedName("Nominal")
-    val nominal: Int,
-    @SerializedName("NumCode")
-    val numCode: String,
-    @SerializedName("Previous")
-    val previous: Double,
-    @SerializedName("Value")
-    val value: Double
-)
-
-data class KGS(
-    @SerializedName("CharCode")
-    val charCode: String,
-    @SerializedName("ID")
-    val iD: String,
-    @SerializedName("Name")
-    val name: String,
-    @SerializedName("Nominal")
-    val nominal: Int,
-    @SerializedName("NumCode")
-    val numCode: String,
-    @SerializedName("Previous")
-    val previous: Double,
-    @SerializedName("Value")
-    val value: Double
-)
-
-data class KRW(
-    @SerializedName("CharCode")
-    val charCode: String,
-    @SerializedName("ID")
-    val iD: String,
-    @SerializedName("Name")
-    val name: String,
-    @SerializedName("Nominal")
-    val nominal: Int,
-    @SerializedName("NumCode")
-    val numCode: String,
-    @SerializedName("Previous")
-    val previous: Double,
-    @SerializedName("Value")
-    val value: Double
-)
-
-data class KZT(
-    @SerializedName("CharCode")
-    val charCode: String,
-    @SerializedName("ID")
-    val iD: String,
-    @SerializedName("Name")
-    val name: String,
-    @SerializedName("Nominal")
-    val nominal: Int,
-    @SerializedName("NumCode")
-    val numCode: String,
-    @SerializedName("Previous")
-    val previous: Double,
-    @SerializedName("Value")
-    val value: Double
-)
-
-data class MDL(
-    @SerializedName("CharCode")
-    val charCode: String,
-    @SerializedName("ID")
-    val iD: String,
-    @SerializedName("Name")
-    val name: String,
-    @SerializedName("Nominal")
-    val nominal: Int,
-    @SerializedName("NumCode")
-    val numCode: String,
-    @SerializedName("Previous")
-    val previous: Double,
-    @SerializedName("Value")
-    val value: Double
-)
-
-data class NOK(
-    @SerializedName("CharCode")
-    val charCode: String,
-    @SerializedName("ID")
-    val iD: String,
-    @SerializedName("Name")
-    val name: String,
-    @SerializedName("Nominal")
-    val nominal: Int,
-    @SerializedName("NumCode")
-    val numCode: String,
-    @SerializedName("Previous")
-    val previous: Double,
-    @SerializedName("Value")
-    val value: Double
-)
-
-data class PLN(
-    @SerializedName("CharCode")
-    val charCode: String,
-    @SerializedName("ID")
-    val iD: String,
-    @SerializedName("Name")
-    val name: String,
-    @SerializedName("Nominal")
-    val nominal: Int,
-    @SerializedName("NumCode")
-    val numCode: String,
-    @SerializedName("Previous")
-    val previous: Double,
-    @SerializedName("Value")
-    val value: Double
-)
-
-data class RON(
-    @SerializedName("CharCode")
-    val charCode: String,
-    @SerializedName("ID")
-    val iD: String,
-    @SerializedName("Name")
-    val name: String,
-    @SerializedName("Nominal")
-    val nominal: Int,
-    @SerializedName("NumCode")
-    val numCode: String,
-    @SerializedName("Previous")
-    val previous: Double,
-    @SerializedName("Value")
-    val value: Double
-)
-
-data class SEK(
-    @SerializedName("CharCode")
-    val charCode: String,
-    @SerializedName("ID")
-    val iD: String,
-    @SerializedName("Name")
-    val name: String,
-    @SerializedName("Nominal")
-    val nominal: Int,
-    @SerializedName("NumCode")
-    val numCode: String,
-    @SerializedName("Previous")
-    val previous: Double,
-    @SerializedName("Value")
-    val value: Double
-)
-
-data class SGD(
-    @SerializedName("CharCode")
-    val charCode: String,
-    @SerializedName("ID")
-    val iD: String,
-    @SerializedName("Name")
-    val name: String,
-    @SerializedName("Nominal")
-    val nominal: Int,
-    @SerializedName("NumCode")
-    val numCode: String,
-    @SerializedName("Previous")
-    val previous: Double,
-    @SerializedName("Value")
-    val value: Double
-)
-
-data class TJS(
-    @SerializedName("CharCode")
-    val charCode: String,
-    @SerializedName("ID")
-    val iD: String,
-    @SerializedName("Name")
-    val name: String,
-    @SerializedName("Nominal")
-    val nominal: Int,
-    @SerializedName("NumCode")
-    val numCode: String,
-    @SerializedName("Previous")
-    val previous: Double,
-    @SerializedName("Value")
-    val value: Double
-)
-
-data class TMT(
-    @SerializedName("CharCode")
-    val charCode: String,
-    @SerializedName("ID")
-    val iD: String,
-    @SerializedName("Name")
-    val name: String,
-    @SerializedName("Nominal")
-    val nominal: Int,
-    @SerializedName("NumCode")
-    val numCode: String,
-    @SerializedName("Previous")
-    val previous: Double,
-    @SerializedName("Value")
-    val value: Double
-)
-
-data class TRY(
-    @SerializedName("CharCode")
-    val charCode: String,
-    @SerializedName("ID")
-    val iD: String,
-    @SerializedName("Name")
-    val name: String,
-    @SerializedName("Nominal")
-    val nominal: Int,
-    @SerializedName("NumCode")
-    val numCode: String,
-    @SerializedName("Previous")
-    val previous: Double,
-    @SerializedName("Value")
-    val value: Double
-)
-
-data class UAH(
-    @SerializedName("CharCode")
-    val charCode: String,
-    @SerializedName("ID")
-    val iD: String,
-    @SerializedName("Name")
-    val name: String,
-    @SerializedName("Nominal")
-    val nominal: Int,
-    @SerializedName("NumCode")
-    val numCode: String,
-    @SerializedName("Previous")
-    val previous: Double,
-    @SerializedName("Value")
-    val value: Double
-)
-
-data class USD(
-    @SerializedName("CharCode")
-    val charCode: String,
-    @SerializedName("ID")
-    val iD: String,
-    @SerializedName("Name")
-    val name: String,
-    @SerializedName("Nominal")
-    val nominal: Int,
-    @SerializedName("NumCode")
-    val numCode: String,
-    @SerializedName("Previous")
-    val previous: Double,
-    @SerializedName("Value")
-    val value: Double
-)
-
-data class UZS(
-    @SerializedName("CharCode")
-    val charCode: String,
-    @SerializedName("ID")
-    val iD: String,
-    @SerializedName("Name")
-    val name: String,
-    @SerializedName("Nominal")
-    val nominal: Int,
-    @SerializedName("NumCode")
-    val numCode: String,
-    @SerializedName("Previous")
-    val previous: Double,
-    @SerializedName("Value")
-    val value: Double
-)
-
-data class XDR(
-    @SerializedName("CharCode")
-    val charCode: String,
-    @SerializedName("ID")
-    val iD: String,
-    @SerializedName("Name")
-    val name: String,
-    @SerializedName("Nominal")
-    val nominal: Int,
-    @SerializedName("NumCode")
-    val numCode: String,
-    @SerializedName("Previous")
-    val previous: Double,
-    @SerializedName("Value")
-    val value: Double
-)
-
-data class ZAR(
-    @SerializedName("CharCode")
-    val charCode: String,
-    @SerializedName("ID")
-    val iD: String,
-    @SerializedName("Name")
-    val name: String,
-    @SerializedName("Nominal")
-    val nominal: Int,
-    @SerializedName("NumCode")
-    val numCode: String,
-    @SerializedName("Previous")
-    val previous: Double,
-    @SerializedName("Value")
-    val value: Double
-)
 

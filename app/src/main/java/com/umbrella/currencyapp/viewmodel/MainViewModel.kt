@@ -10,6 +10,8 @@ import com.umbrella.currencyapp.model.api.ApiFactory
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
+private const val CURRENCY_CLASS_FIELDS_COUNT = 7
+
 class MainViewModel : ViewModel() {
 
     private val currencyInfoLiveData = MutableLiveData<AppState>()
@@ -22,8 +24,8 @@ class MainViewModel : ViewModel() {
             try {
                 val response = ApiFactory.retrofitService.getCurrencyInfo()
                 val currencyList = castObjectFieldsToGeneralClassAndPutInTheList(
-                    response.valute.toString(),
-                    response.valute.javaClass.declaredFields.size
+                    response.allCurrencyInfo.toString(),
+                    response.allCurrencyInfo.javaClass.declaredFields.size
                 )
                 currencyInfoLiveData.postValue(AppState.Success(currencyList))
             } catch (error: Throwable) {
@@ -36,22 +38,22 @@ class MainViewModel : ViewModel() {
         currencyInfo: String,
         listSize: Int
     ): List<Currency> {
-        val split = currencyInfo.split(",", "(", ")")
+        val split = currencyInfo.split("+")
         val list =
-            split.filter { s -> s.contains("=") }.map { s -> s.split("=")[1] }
+            split.filter { s -> !s.contains("=") }
         val currencyList = ArrayList<Currency>()
         var stepIndex = 0
         for (i in 0 until listSize) {
             val currency = Currency(
+                list[0 + stepIndex],
                 list[1 + stepIndex],
                 list[2 + stepIndex],
-                list[3 + stepIndex],
-                list[4 + stepIndex].toInt(),
-                list[5 + stepIndex],
-                list[6 + stepIndex].toDouble(),
-                list[7 + stepIndex].toDouble()
+                list[3 + stepIndex].toInt(),
+                list[4 + stepIndex],
+                list[5 + stepIndex].toDouble(),
+                list[6 + stepIndex].toDouble()
             )
-            stepIndex += 8
+            stepIndex += CURRENCY_CLASS_FIELDS_COUNT
             currencyList.add(currency)
         }
         return currencyList
